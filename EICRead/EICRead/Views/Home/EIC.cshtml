@@ -1,0 +1,61 @@
+﻿@model EICRead.Models.AsApplied
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Message</title>
+
+    <style>
+        div {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    Gabe Su
+    </div>
+
+    <form action="EIC" method="post" enctype="multipart/form-data">
+      <input type="file" name="FileUpload1" /><br />
+      <input type="submit" name="Submit" id="Submit" value="Upload" />
+    </form>
+
+    @if (Model != null)
+    {
+        <div style="float:left">
+        <h1>LogOperationsMeters</h1>
+        @foreach (string s in Model.LogOperationsMeters)
+        {
+            <div>@s</div>
+        }
+        </div>
+        <div style="float:left;background-color:#ffdc94">
+        <h1>EquipmentConfigSections</h1>
+        @foreach(string s in Model.EquipmentConfigSections)
+        {
+            <div>@s</div>
+        }
+        </div>
+        <div style="float:left;background-color:#ffffff">
+        <h1>EquipmentConfigNavigation</h1>
+        @foreach(string s in Model.EquipmentConfigNavigation)
+        {
+            <div>@s</div>
+        }
+        </div>
+        @*<div style="float:left;background-color:#ffdc94">
+        <h1>TaskMeasurementsMeters</h1>
+        @foreach (string s in Model.TaskMeasurementsMeters)
+        {
+            <div>@s</div>
+        }
+        </div>*@
+    }
+</body>
+</html>
